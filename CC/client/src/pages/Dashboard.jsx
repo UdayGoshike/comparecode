@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
 function Dashboard() {
+  const API_URL = import.meta.env.VITE_API_URL;
   const deleteAnalysis = async (id) => {
     if (!window.confirm("Delete this analysis?")) return;
 
     try {
       const token = localStorage.getItem("token");
 
-      await axios.delete(`http://localhost:5000/api/report/${id}`, {
+      await axios.delete(`${API_URL}/api/report/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -35,7 +36,7 @@ function Dashboard() {
         const token = localStorage.getItem("token");
 
         const response = await axios.get(
-          "http://localhost:5000/api/report/history",
+  `${API_URL}/api/report/history`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -56,11 +57,11 @@ function Dashboard() {
       "Are you sure you want to delete this analysis?",
     );
 
-    if (!confirmDelete) return;
+    if (!confirmDelete) return; 
     try {
       const token = localStorage.getItem("token");
 
-      await axios.delete(`http://localhost:5000/api/report/${id}`, {
+      await axios.delete(`${API_URL}/api/report/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

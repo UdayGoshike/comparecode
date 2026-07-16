@@ -32,7 +32,7 @@ function Signup() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/auth/signup", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/signup`, {
         username,
         password,
       });
@@ -75,9 +75,7 @@ function Signup() {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
 
-        <button onClick={handleSignup}>
-          Create Account
-        </button>
+        <button onClick={handleSignup}>Create Account</button>
 
         <p className="login-text" style={{ color: "#555" }}>
           Already have an account?
