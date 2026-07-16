@@ -1,29 +1,39 @@
 const mysql = require("mysql2");
+const fs = require("fs");
+const path = require("path");
 
 const connection = mysql.createConnection({
 
     host: process.env.DB_HOST,
 
+    port: process.env.DB_PORT,
+
     user: process.env.DB_USER,
 
     password: process.env.DB_PASSWORD,
 
-    database: process.env.DB_NAME
+    database: process.env.DB_NAME,
+
+    ssl: {
+        ca: fs.readFileSync(
+            path.join(__dirname, "isrgrootx1.pem")
+        )
+    }
 
 });
 
 connection.connect((err) => {
 
-    if(err){
+    if (err) {
 
-        console.log("Database Connection Failed");
+        console.log("Database Connection Failed ❌");
         console.log(err);
 
     }
 
-    else{
+    else {
 
-        console.log("Connected to MySQL Successfully ✅");
+        console.log("Connected to TiDB Successfully ✅");
 
     }
 
