@@ -95,7 +95,7 @@ function Dashboard() {
         </header>
 
         <div className="content">
-          <h1>Hello, Uday 👋</h1>
+          <h1>Hello,There👋</h1>
 
           <p>Ready to analyze your next solution?</p>
 
