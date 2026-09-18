@@ -33,7 +33,7 @@ const analyzeSolution = async (req, res) => {
     console.log(analysis);
 
     const parsedAnalysis = JSON.parse(analysis);
-console.log(parsedAnalysis.problemName);
+
     const score = calculateScore(
       parsedAnalysis.timeComplexity,
       parsedAnalysis.optimalTimeComplexity

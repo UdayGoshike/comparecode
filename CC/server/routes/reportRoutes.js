@@ -8,7 +8,7 @@ const {
   getHistory,
   getReport,
   getProfile,
-  deleteReport
+  deleteReport   
 } = require("../controllers/reportController");
 
 router.get("/history", verifyToken, getHistory);

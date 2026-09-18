@@ -32,7 +32,7 @@ function AddProblem() {
       const token = localStorage.getItem("token");
 
      const response = await axios.post(
-  `${import.meta.env.VITE_API_URL}/api/analyze`,
+  `${import.meta.env.VITE_API_URL}/api/analyze`,  
 
         {
           platform,
